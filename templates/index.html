@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Bahan & Rekomendasi Resep Masakan</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h2>Smart Kitchen: Deteksi Bahan & Rekomendasi Resep</h2>
+        <span id="statusBadge" class="status-badge">Status: Loading</span>
+    </nav>
+
+    <div class="container">
+        <!-- Kamera Kiri -->
+        <div class="video-section">
+            <div class="video-container">
+                <video id="webcam" autoplay playsinline muted></video>
+                <canvas id="overlay"></canvas>
+            </div>
+            <div class="camera-controls">
+                <label for="cameraSelect">Pilih Input Webcam:</label>
+                <select id="cameraSelect">
+                    <option>Mencari perangkat...</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Panel Informasi Kanan -->
+        <div class="panel-section">
+            
+            <!-- Panel Status Bahan (Menggantikan Panel Harga) -->
+            <div class="card summary-card">
+                <h3>STATUS DETEKSI BAHAN</h3>
+                <div id="detectedSummary" class="summary-amount">0 / 3 Bahan</div>
+                <!-- Ubah teks target di bawah ini -->
+                <div class="detected-count">Target: Tomat, Bawang Putih, Cabai</div>
+            </div>
+
+            <!-- Panel Daftar Bahan Terdeteksi -->
+            <div class="card list-card">
+                <h3>Bahan Terdeteksi Saat Ini</h3>
+                <ul id="detectionList" class="detection-list">
+                    <li class="empty-state">Kamera belum mendeteksi tomat, bawang merah, atau bawang putih.</li>
+                </ul>
+            </div>
+
+            <!-- Panel Rekomendasi Resep -->
+            <div class="card recipe-card">
+                <h3>Rekomendasi Resep</h3>
+                <ul id="recipeList" class="recipe-list">
+                    <li class="empty-state">Pindai bahan untuk memunculkan ide masakan (misal: Sambal Tomat, Nasi Goreng Bawang).</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>
